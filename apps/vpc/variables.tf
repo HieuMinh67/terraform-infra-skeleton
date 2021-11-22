@@ -16,6 +16,3 @@ variable "private_subnet_cidr_blocks" {
     default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
-variable "aws_region" {}
-variable "aws_access_key_id" {}
-variable "aws_secret_access_key" {}
