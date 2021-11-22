@@ -20,8 +20,9 @@ variable "app_name" {
 }
 
 variable "infra_stage" {}
+
 variable "aws_region" {
-  default = "ap-southeast-1"
+  default = "us-west-2"
 }
 
 variable "aws_account_id" {}
