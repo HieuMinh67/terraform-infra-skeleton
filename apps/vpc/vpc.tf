@@ -12,7 +12,7 @@ module "vpc" {
   enable_dns_hostnames = true
 
   default_security_group_tags = {
-    "Name" = "${var.app_name}-default-sg"
+    "Name" = "${var.vpc_name}-default-sg"
   }
 
   # let Kops decide what to tag
