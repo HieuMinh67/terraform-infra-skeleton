@@ -24,5 +24,5 @@ variable "tfe_token" {}
 
 variable "github_oauth_token" {}
 variable "organisation" {
-  default = "HocVienCongGiao"
+  default = "BeanTraining"
 }
