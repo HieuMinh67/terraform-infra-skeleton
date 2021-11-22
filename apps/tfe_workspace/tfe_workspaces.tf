@@ -4,7 +4,7 @@ resource "tfe_workspace" "this" {
   organization        = var.organisation
   speculative_enabled = true
   queue_all_runs      = each.value.depends_on == "" ? true : false
-  ssh_key_id          = tfe_ssh_key.this.id
+  ssh_key_id          = var.tfe_ssh_key_id
   execution_mode      = each.value.execution_mode
   auto_apply          = each.value.auto_apply
   global_remote_state = true
@@ -51,11 +51,3 @@ resource "tfe_oauth_client" "this-github" {
 #  workspace_id     = tfe_workspace.this["${var.environment}-${var.platform}-${each.value.app_type}-${each.value.app_category}-${each.value.app_name}"].id
 # }
 
-
-# Create a private SSH key for downloading Terraform modules from Git-based module sources
-# . This key is not used for cloning the workspace VCS repository or for provisioner connections.
-resource "tfe_ssh_key" "this" {
-  name         = var.ssh_key_name != "" ? var.ssh_key_name : "${var.environment}-${var.platform}-ssh-key"
-  organization = var.organisation
-  key          = var.private_key
-}

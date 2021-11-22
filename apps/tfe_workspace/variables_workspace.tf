@@ -25,6 +25,4 @@ variable "environment" {
   default = "dev-sg"
 }
 
-variable "ssh_key_name" {
-  default = ""
-}
+variable "tfe_ssh_key_id" {}
