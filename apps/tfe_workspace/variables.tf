@@ -26,8 +26,3 @@ variable "github_oauth_token" {}
 variable "organisation" {
   default = "HocVienCongGiao"
 }
-
-variable "db_host" {}
-variable "db_user" {}
-variable "db_password" {}
-variable "db_name" {}

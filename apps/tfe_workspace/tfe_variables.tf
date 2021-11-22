@@ -107,50 +107,6 @@ resource "tfe_variable" "this-terraform-github_oauth_token" {
   sensitive = true
 }
 
-resource "tfe_variable" "this-terraform-db_host" {
-  count = length(var.workspaces)
-
-  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
-
-  category  = "terraform"
-  key       = "db_host"
-  value     = var.db_host
-  sensitive = true
-}
-
-resource "tfe_variable" "this-terraform-db_user" {
-  count = length(var.workspaces)
-
-  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
-
-  category  = "terraform"
-  key       = "db_user"
-  value     = var.db_user
-  sensitive = true
-}
-
-resource "tfe_variable" "this-terraform-db_password" {
-  count = length(var.workspaces)
-
-  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
-
-  category  = "terraform"
-  key       = "db_password"
-  value     = var.db_password
-  sensitive = true
-}
-
-resource "tfe_variable" "this-terraform-db_name" {
-  count = length(var.workspaces)
-
-  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
-
-  category  = "terraform"
-  key       = "db_name"
-  value     = var.db_name
-  sensitive = true
-}
-
 # resource "tfe_variable" "this-environment-aws_account_ids" {
 #   count = length(var.workspaces)
 
