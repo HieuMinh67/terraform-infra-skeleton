@@ -24,5 +24,3 @@ variable "api_key" {
 variable "environment" {
   default = "dev-sg"
 }
-
-variable "tfe_ssh_key_id" {}

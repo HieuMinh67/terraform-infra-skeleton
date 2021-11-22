@@ -4,7 +4,7 @@ resource "tfe_workspace" "this" {
   organization        = var.organisation
   speculative_enabled = true
   queue_all_runs      = each.value.depends_on == "" ? true : false
-  ssh_key_id          = var.tfe_ssh_key_id
+  ssh_key_id          = data.tfe_workspace.this-tfc.sh_key_id
   execution_mode      = each.value.execution_mode
   auto_apply          = each.value.auto_apply
   global_remote_state = true
