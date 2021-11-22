@@ -18,7 +18,7 @@ resource "tfe_workspace" "this" {
   dynamic "vcs_repo" {
     for_each = each.value.is_vcs_connected ? [1] : []
     content {
-      identifier     = "${var.organisation}/terraform-infra"
+      identifier     = "${var.organisation}/terraform-infra-${var.environment}"
       branch         = var.infra_stage
       oauth_token_id = tfe_oauth_client.this-github.oauth_token_id
     }
