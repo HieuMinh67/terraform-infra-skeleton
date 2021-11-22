@@ -11,6 +11,14 @@ locals {
 
 variable "private_key" {}
 variable "platform" {}
+variable "app_type" {}
+variable "app_category" {
+  default = "tfc"
+}
+variable "app_name" {
+  default = "workspace"
+}
+
 variable "infra_stage" {}
 variable "aws_region" {
   default = "ap-southeast-1"

@@ -1,5 +1,5 @@
 data "tfe_workspace" "this-tfc" {
-  name         = "${var.environment}-${var.platform}-terraform-cloud"
+  name         = "${var.environment}-${var.platform}-${var.app_type}-${var.app_category}-${var.app_name}"
   organization = var.organisation
 }
 
