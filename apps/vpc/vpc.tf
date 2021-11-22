@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.77.0"
 
-  name                 = var.app_name
+  name                 = var.vpc_name
   cidr                 = var.cidr_block
   azs                  = data.aws_availability_zones.available.names
   private_subnets      = var.private_subnet_cidr_blocks

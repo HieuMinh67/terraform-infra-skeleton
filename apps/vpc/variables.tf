@@ -1,4 +1,4 @@
-variable "app_name" {}
+variable "vpc_name" {}
 variable "bounded_context" {}
 variable "enable_nat_gateway" {
   default = false
