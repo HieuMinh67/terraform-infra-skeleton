@@ -14,3 +14,6 @@ output "vpc_public_subnet_ids" {
   value = module.vpc.public_subnets
 }
 
+output "vpc_private_route_table_ids" {
+  value = module.vpc.private_route_table_ids
+}
