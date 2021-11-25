@@ -23,6 +23,9 @@ resource "aws_launch_template" "nat" {
     network_interface_id = aws_network_interface.nat.id
     device_index         = 0
   }
+  tags = {
+    Name = "Nat Instance"
+  }
 }
 
 resource "aws_autoscaling_group" "nat" {
