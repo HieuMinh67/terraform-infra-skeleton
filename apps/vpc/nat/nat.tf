@@ -14,6 +14,7 @@ data "aws_ami" "nat_ami_amazon2" {
 
   owners = ["606500562958"] # Canonical
 }
+
 resource "aws_launch_template" "nat" {
   name_prefix   = "nat"
   image_id      = data.aws_ami.nat_ami_amazon2.id
@@ -44,35 +45,8 @@ resource "aws_route" "nat" {
 
 resource "aws_network_interface" "nat" {
   subnet_id         = module.vpc.private_route_table_ids[0]
-  private_ips       = ["10.0.4.10"]
-  security_groups   = [aws_security_group.allow_all.id]
+  private_ips       = var.private_ips
+  security_groups   = [var.security_group_id]
   source_dest_check = false
 
-}
-
-resource "aws_security_group" "allow_all" {
-  name        = "allow_all"
-  description = "Allow ALL inbound traffic"
-  vpc_id      = module.vpc.vpc_id
-
-  ingress {
-    description      = "TLS from VPC"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  tags = {
-    Name = "allow_all"
-  }
 }
