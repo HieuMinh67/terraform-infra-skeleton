@@ -47,7 +47,7 @@ resource "aws_route" "nat" {
 }
 
 resource "aws_network_interface" "nat" {
-  subnet_id         = var.vpc_private_subnet_id
+  subnet_id         = var.vpc_public_subnet_id
   private_ips       = var.private_ips
   security_groups   = [var.security_group_id]
   source_dest_check = false
