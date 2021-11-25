@@ -41,13 +41,13 @@ resource "aws_autoscaling_group" "nat" {
 }
 
 resource "aws_route" "nat" {
-  route_table_id         = var.vpc_private_route_table_ids[0]
+  route_table_id         = var.vpc_private_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   network_interface_id   = aws_network_interface.nat.id
 }
 
 resource "aws_network_interface" "nat" {
-  subnet_id         = var.vpc_private_route_table_ids[0]
+  subnet_id         = var.vpc_private_route_table_id
   private_ips       = var.private_ips
   security_groups   = [var.security_group_id]
   source_dest_check = false
