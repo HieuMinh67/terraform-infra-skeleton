@@ -8,13 +8,14 @@ resource "tfe_workspace" "this" {
   execution_mode      = each.value.execution_mode
   auto_apply          = each.value.auto_apply
   global_remote_state = true
-  trigger_prefixes = each.value.is_vcs_connected ? concat(each.value.trigger_prefixes,
-    [
-      "platforms/${var.platform}/apps/hvcg/tfc/releases"
-    ]
-  ) : null
+  # trigger_prefixes = each.value.is_vcs_connected ? concat(each.value.trigger_prefixes,
+  #   [
+  #     "platforms/${var.platform}/apps/hvcg/tfc/releases"
+  #   ]
+  # ) : null
 
-  working_directory = each.value.is_vcs_connected ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : null
+  working_directory = each.value.is_vcs_connected ? var.state != "destroyed" ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : "${data.tfe_workspace.this-tfc}/empty"  ): null
+  
   dynamic "vcs_repo" {
     for_each = each.value.is_vcs_connected ? [1] : []
     content {

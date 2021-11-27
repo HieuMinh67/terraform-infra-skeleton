@@ -12,6 +12,10 @@ variable "workspaces" {
   }))
 }
 
+variable "state" {
+  default = "destroyed"
+}
+
 variable "aws-lambda-workspace" {
   default = "terraform-api-aws-lambda"
 }
