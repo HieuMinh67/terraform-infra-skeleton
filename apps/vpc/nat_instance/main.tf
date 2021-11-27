@@ -24,8 +24,16 @@ resource "aws_launch_template" "nat" {
     device_index         = 0
   }
   tags = {
-    Name = "Nat Instance"
+    Name = "Nat Instance Launch Template"
   }
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = {
+      Name = "Nat Instance"
+    }
+  }
+
 }
 
 resource "aws_autoscaling_group" "nat" {
