@@ -14,7 +14,7 @@ resource "tfe_workspace" "this" {
   #   ]
   # ) : null
 
-  working_directory = each.value.is_vcs_connected ? var.state != "destroyed" ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : "${data.tfe_workspace.this-tfc}/empty"  ): null
+  working_directory = each.value.is_vcs_connected ? (var.state != "destroyed" ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : "${data.tfe_workspace.this-tfc}/empty"  ): null
   
   dynamic "vcs_repo" {
     for_each = each.value.is_vcs_connected ? [1] : []
