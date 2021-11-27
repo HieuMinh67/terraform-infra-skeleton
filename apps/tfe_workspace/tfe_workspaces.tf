@@ -4,7 +4,7 @@ resource "tfe_workspace" "this" {
   organization        = var.organisation
   speculative_enabled = true
   queue_all_runs      = each.value.depends_on == "" ? true : false
-  ssh_key_id          = data.tfe_workspace.this-tfc.ssh_key_id
+  ssh_key_id          = data.tfe_workspace.this_tfc.ssh_key_id
   execution_mode      = each.value.execution_mode
   auto_apply          = each.value.auto_apply
   global_remote_state = true
@@ -14,7 +14,7 @@ resource "tfe_workspace" "this" {
   #   ]
   # ) : null
 
-  working_directory = each.value.is_vcs_connected ? (var.state != "destroyed" ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : "${data.tfe_workspace.this-tfc}/empty") : null
+  working_directory = each.value.is_vcs_connected ? (var.state != "destroyed" ? "platforms/${var.platform}/${each.value.app_type}/${each.value.app_category}/${each.value.app_name}" : "${data.tfe_workspace.this_tfc}/empty") : null
 
   dynamic "vcs_repo" {
     for_each = each.value.is_vcs_connected ? [1] : []
@@ -38,7 +38,7 @@ resource "tfe_oauth_client" "this-github" {
 # resource "tfe_run_trigger" "this" {
 #  for_each      = { for ws in var.workspaces : "${var.environment}-${ws.app_type}-${ws.app_category}-${ws.app_name}" => ws }
 #  workspace_id  = tfe_workspace.this["${var.environment}-${var.platform}-${each.value.app_type}-${each.value.app_category}-${each.value.app_name}"].id
-#  sourceable_id = each.value.depends_on == "" ? data.tfe_workspace.this-tfc.id : tfe_workspace.this["${var.environment}-${var.platform}-${each.value.depends_on}"].id
+#  sourceable_id = each.value.depends_on == "" ? data.tfe_workspace.this_tfc.id : tfe_workspace.this["${var.environment}-${var.platform}-${each.value.depends_on}"].id
 # }
 
 # resource "tfe_notification_configuration" "this-auto-approver" {

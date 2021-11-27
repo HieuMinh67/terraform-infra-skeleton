@@ -1,4 +1,4 @@
-data "tfe_workspace" "this-tfc" {
+data "tfe_workspace" "this_tfc" {
   name         = "${var.environment}-${var.platform}-${var.app_type}-${var.app_category}-${var.app_name}"
   organization = var.organisation
 }
