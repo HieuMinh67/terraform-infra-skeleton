@@ -23,14 +23,3 @@ variable "nat_instance_sg_id" {}
 variable "nat_instance_private_ip" {
   default = "10.0.4.10"
 }
-
-variable "vpc_peerings" {
-  type = list(object({
-    peer_vpc_id                = string
-    vpc_id                     = string
-    peer_aws_region            = string
-    peer_aws_access_key_id     = string
-    peer_aws_secret_access_key = string
-  }))
-  default = []
-}
