@@ -19,6 +19,17 @@ variable "private_subnet_cidr_blocks" {
 }
 
 variable "nat_instance_sg_id" {}
+
 variable "nat_instance_private_ip" {
   default = "10.0.4.10"
+}
+
+variable "vpc_peerings" {
+  type = list(object({
+    peer_vpc_id   = string
+    vpc_id        = string
+    peer_provider = string
+    peer_region   = string
+  }))
+  default = []
 }
