@@ -14,6 +14,14 @@ module "vpc" {
   default_security_group_tags = {
     "Name" = "${var.vpc_name}-default-sg"
   }
+  
+  private_subnet_tags = {
+    "Tier" = "Private"
+  }
+  
+  public_subnet_tags = {
+    "Tier" = "Public"
+  }
 
   # let Kops decide what to tag
   # public_subnet_tags = {
