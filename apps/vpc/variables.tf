@@ -19,3 +19,6 @@ variable "private_subnet_cidr_blocks" {
 }
 
 variable "nat_instance_sg_id" {}
+variable "nat_instance_private_ip" {
+  default = "10.0.4.10"
+}

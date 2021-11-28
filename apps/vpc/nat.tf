@@ -1,7 +1,7 @@
 
 module "nat" {
   source                     = "./nat_instance"
-  private_ips                = ["10.0.4.10"]
+  private_ips                = [var.nat_instance_private_ip]
   security_group_id          = var.nat_instance_sg_id
   aws_region                 = var.aws_region
   vpc_private_route_table_id = module.vpc.private_route_table_ids[0]
