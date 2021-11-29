@@ -12,7 +12,7 @@ data "aws_ami" "nat_ami_amazon2" {
     values = ["hvm"]
   }
 
-  owners = ["606500562958"] # Canonical
+  owners = ["606500562958", "249617153445"] # ptdev, sharedbean (global)
 }
 
 resource "aws_launch_template" "nat" {
