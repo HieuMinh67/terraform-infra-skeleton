@@ -1,5 +1,5 @@
 data "aws_route_table" "private" {
-  subnet_id = tolist(data.aws_subnet_ids.private)[0]
+  subnet_id = tolist(data.aws_subnet_ids.private.ids)[0]
 }
 
 
@@ -24,7 +24,7 @@ data "aws_caller_identity" "peer" {
 }
 
 data "aws_route_table" "peer_private" {
-  subnet_id = tolist(data.aws_subnet_ids.peer_private)[0]
+  subnet_id = tolist(data.aws_subnet_ids.peer_private.ids)[0]
 }
 
 data "aws_subnet_ids" "peer_private" {
