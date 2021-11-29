@@ -30,7 +30,7 @@ resource "aws_vpc_peering_connection_accepter" "peer" {
 }
 
 resource "aws_route" "to_peer" {
-  for_each = data.aws_vpc.peer_vpc.cidr_block_associations.*.cidr_block
+  for_each = toset(data.aws_vpc.peer_vpc.cidr_block_associations.*.cidr_block)
   route_table_id            = data.aws_route_table.private.id
   destination_cidr_block    = each.key
   vpc_peering_connection_id = aws_vpc_peering_connection.requestor.id
