@@ -28,3 +28,10 @@ resource "aws_vpc_peering_connection_accepter" "peer" {
     Side = "Acceptor"
   }
 }
+
+resource "aws_route" "to_peer" {
+  route_table_id            = data.aws_route_table.private.id
+  destination_cidr_block    = data.aws_vpc.peer_vpc.cidr_block_associations.cidr_block
+  vpc_peering_connection_id = aws_vpc_peering_connection.requestor.id
+  # depends_on                = [aws_route_table.testing]
+}
