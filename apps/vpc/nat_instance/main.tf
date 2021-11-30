@@ -24,13 +24,13 @@ resource "aws_launch_template" "nat" {
     device_index         = 0
   }
   tags = {
-    Name = "Nat Instance Launch Template"
+    Name = "nat_instance-launch_template-${var.vpc_name}"
   }
   tag_specifications {
     resource_type = "instance"
 
     tags = {
-      Name = "Nat Instance"
+      Name = "nat_instance-${var.vpc_name}"
     }
   }
 
