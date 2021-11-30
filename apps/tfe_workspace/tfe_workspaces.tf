@@ -25,7 +25,7 @@ resource "tfe_workspace" "this" {
     }
   }
   
-  tag_names    = [var.environment, var.app_type, var.app_category]
+  tag_names    = [var.environment, each.value.app_type, each.value.app_category]
 }
 
 
