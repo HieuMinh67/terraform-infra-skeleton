@@ -26,8 +26,10 @@ data "aws_vpc" "vpc" {
   id = var.vpc_id
 }
 
+# Datasource for Peer VPC
 data "aws_vpc" "peer_vpc" {
-  id = var.peer_vpc_id
+  id       = var.peer_vpc_id
+  provider = aws.peer
 }
 
 data "aws_caller_identity" "peer" {
@@ -36,10 +38,12 @@ data "aws_caller_identity" "peer" {
 
 data "aws_route_table" "peer_private" {
   subnet_id = tolist(data.aws_subnet_ids.peer_private.ids)[0]
+  provider  = aws.peer
 }
 
 data "aws_subnet_ids" "peer_private" {
-  vpc_id = var.peer_vpc_id
+  vpc_id   = var.peer_vpc_id
+  provider = aws.peer
 
   tags = {
     Tier = "Private"
@@ -49,10 +53,12 @@ data "aws_subnet_ids" "peer_private" {
 
 data "aws_route_table" "peer_public" {
   subnet_id = tolist(data.aws_subnet_ids.peer_public.ids)[0]
+  provider  = aws.peer
 }
 
 data "aws_subnet_ids" "peer_public" {
-  vpc_id = var.peer_vpc_id
+  vpc_id   = var.peer_vpc_id
+  provider = aws.peer
 
   tags = {
     Tier = "Public"

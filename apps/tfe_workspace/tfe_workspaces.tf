@@ -24,8 +24,8 @@ resource "tfe_workspace" "this" {
       oauth_token_id = tfe_oauth_client.this-github.oauth_token_id
     }
   }
-  
-  tag_names    = [var.environment, each.value.app_type, each.value.app_category]
+
+  tag_names = [var.environment, each.value.app_type, each.value.app_category]
 }
 
 
