@@ -1,5 +1,6 @@
 
 module "nat" {
+  count                      = var.enable_nat_instance ? 1 : 0
   source                     = "./nat_instance"
   private_ips                = [var.nat_instance_private_ip]
   security_group_id          = var.nat_instance_sg_id

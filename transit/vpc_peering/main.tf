@@ -18,7 +18,7 @@ resource "aws_vpc_peering_connection" "requestor" {
   }
 }
 
-# Acceptor's side of the connection.
+# Peer/Acceptor's side of the connection.
 resource "aws_vpc_peering_connection_accepter" "peer" {
   provider                  = aws.peer
   vpc_peering_connection_id = aws_vpc_peering_connection.requestor.id
@@ -42,6 +42,7 @@ resource "aws_route" "from_peer_private" {
   route_table_id            = data.aws_route_table.peer_private.id
   destination_cidr_block    = each.key
   vpc_peering_connection_id = aws_vpc_peering_connection.requestor.id
+  provider                  = aws.peer
 }
 
 
@@ -58,4 +59,5 @@ resource "aws_route" "from_peer_public" {
   route_table_id            = data.aws_route_table.peer_public.id
   destination_cidr_block    = each.key
   vpc_peering_connection_id = aws_vpc_peering_connection.requestor.id
+  provider                  = aws.peer
 }

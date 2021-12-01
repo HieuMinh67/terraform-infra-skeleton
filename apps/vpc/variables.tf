@@ -3,6 +3,9 @@ variable "bounded_context" {}
 variable "enable_nat_gateway" {
   default = false
 }
+variable "enable_nat_instance" {
+  default = false
+}
 
 variable "aws_region" {}
 
