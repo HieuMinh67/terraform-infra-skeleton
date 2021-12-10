@@ -22,9 +22,9 @@ module "runners" {
   enable_organization_runners = true
 
   # configure your pre-built AMI
-  enabled_userdata = var.enabled_userdata
-  ami_filter       = { name = [var.ami_filter_by_name] }
-  ami_owners       = [var.ami_owner_id]
+  # enabled_userdata = var.enabled_userdata
+  # ami_filter       = { name = [var.ami_filter_by_name] }
+  # ami_owners       = [var.ami_owner_id]
 
   # enable access to the runners via SSM
   enable_ssm_on_runners = var.enable_ssm_on_runners
