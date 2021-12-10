@@ -1,4 +1,4 @@
-module "github-runner" {
+module "runners" {
   source  = "philips-labs/github-runner/aws"
   version = "0.26.1"
 
