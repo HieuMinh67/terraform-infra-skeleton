@@ -1,3 +1,4 @@
+variable "bounded_context" {}
 variable "lambda_s3_bucket" {}
 variable "webhook_lambda_s3_key" {}
 variable "syncer_lambda_s3_key" {}
@@ -14,6 +15,10 @@ variable "environment" {}
 
 variable "ami_filter_by_name" {}
 variable "ami_owner_id" {}
+
+variable "runner_extra_labels" {
+  default = ""
+}
 
 variable "create_service_linked_role_spot" {
   default = true
