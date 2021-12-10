@@ -15,7 +15,7 @@ module "github-runner" {
   }
 
   runner_extra_labels         = var.runner_extra_labels
-  input_lambda_s3_bucket      = var.input_lambda_s3_bucket
+  lambda_s3_bucket      = var.lambda_s3_bucket
   webhook_lambda_s3_key       = var.webhook_lambda_s3_key
   syncer_lambda_s3_key        = var.syncer_lambda_s3_key
   runners_lambda_s3_key       = var.runners_lambda_s3_key
