@@ -1,4 +1,6 @@
 variable "bounded_context" {}
+variable "aws_region" {}
+
 variable "lambda_s3_bucket" {}
 variable "webhook_lambda_s3_key" {}
 variable "syncer_lambda_s3_key" {}
