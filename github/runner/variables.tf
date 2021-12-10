@@ -9,7 +9,6 @@ variable "github_app_key_base64" {}
 variable "github_app_id" {}
 variable "github_app_webhook_secret" {}
 
-variable "version" {}
 variable "aws_region" {}
 variable "vpc_id" {}
 variable "subnet_ids" {}
@@ -19,17 +18,17 @@ variable "ami_filter_by_name" {}
 variable "ami_owner_id" {}
 
 variable "create_service_linked_role_spot" {
-    default = true
+  default = true
 }
 
 variable "enable_ssm_on_runners" {
-    default = true
+  default = true
 }
 
 variable "delay_webhook_event" {
-    default = 5
+  default = 5
 }
 
 variable "enabled_userdata" {
-    default = false
+  default = false
 }

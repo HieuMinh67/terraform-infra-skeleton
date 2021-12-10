@@ -1,6 +1,6 @@
 module "github-runner" {
   source  = "philips-labs/github-runner/aws"
-  version = var.version
+  version = "0.26.1"
 
   aws_region = var.aws_region
   vpc_id     = var.vpc_id
@@ -15,12 +15,12 @@ module "github-runner" {
   }
 
   runner_extra_labels         = var.runner_extra_labels
-  lambda_s3_bucket      = var.lambda_s3_bucket
+  lambda_s3_bucket            = var.lambda_s3_bucket
   webhook_lambda_s3_key       = var.webhook_lambda_s3_key
   syncer_lambda_s3_key        = var.syncer_lambda_s3_key
   runners_lambda_s3_key       = var.runners_lambda_s3_key
   enable_organization_runners = true
-  
+
   # configure your pre-built AMI
   enabled_userdata = var.enabled_userdata
   ami_filter       = { name = [var.ami_filter_by_name] }
@@ -36,5 +36,5 @@ module "github-runner" {
   scale_down_schedule_expression = "cron(* * * * ? *)"
 
   create_service_linked_role_spot = var.create_service_linked_role_spot
-  
+
 }
