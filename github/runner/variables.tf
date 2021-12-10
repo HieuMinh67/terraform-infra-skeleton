@@ -1,6 +1,4 @@
-variable "github_app_key_base64" {}
-variable "github_app_id" {}
-variable "input_lambda_s3_bucket" {}
+variable "lambda_s3_bucket" {}
 variable "webhook_lambda_s3_key" {}
 variable "syncer_lambda_s3_key" {}
 variable "runners_lambda_s3_key" {}
