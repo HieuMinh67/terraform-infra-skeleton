@@ -3,14 +3,15 @@ data "tfe_workspace" "this_tfc" {
   organization = var.organisation
 }
 
-data "terraform_remote_state" "aws-lambda-workspace" {
-  backend = "remote"
+# Only enable when we want to enable tfe_run_trigger in tfe_workspaces.tf which is highly unlikely
+# data "terraform_remote_state" "aws-lambda-workspace" {
+#   backend = "remote"
 
-  config = {
-    organization = var.organisation
-    workspaces = {
-      name = var.aws-lambda-workspace
-    }
-  }
-}
+#   config = {
+#     organization = var.organisation
+#     workspaces = {
+#       name = var.aws-lambda-workspace
+#     }
+#   }
+# }
 

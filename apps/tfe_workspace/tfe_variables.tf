@@ -10,6 +10,7 @@ resource "tfe_variable" "this-environment" {
       name           = pair[1]
       value          = local.shared_environment_variables[pair[1]]
     }
+    if pair[0].is_global_variable_used == false
   }
 
   workspace_id = each.value.workspace_id
@@ -24,6 +25,7 @@ resource "tfe_variable" "this-terraform" {
   # We'll need one tfe_variable instance for each
   # combination of workspace and terraform variable,
   # so this one has a more complicated for_each expression.
+  # TODO use variable set instead
   for_each = {
     for pair in setproduct(var.workspaces, keys(local.shared_terraform_variables)) : "${var.environment}-${var.platform}-${pair[0].app_type}-${pair[0].app_category}-${pair[0].app_name}/${pair[1]}" => {
       workspace_name = "${var.environment}-${var.platform}-${pair[0].app_type}-${pair[0].app_category}-${pair[0].app_name}"
@@ -31,6 +33,7 @@ resource "tfe_variable" "this-terraform" {
       name           = pair[1]
       value          = local.shared_terraform_variables[pair[1]]
     }
+    if pair[0].is_global_variable_used == false
   }
 
   workspace_id = each.value.workspace_id
