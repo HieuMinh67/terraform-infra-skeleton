@@ -1,14 +1,14 @@
 
 variable "workspaces" {
   type = list(object({
-    app_type                = string
-    app_category            = string
-    app_name                = string
-    auto_apply              = bool
-    trigger_prefixes        = list(string)
-    depends_on              = string
-    execution_mode          = string
-    is_vcs_connected        = bool
+    app_type         = string
+    app_category     = string
+    app_name         = string
+    auto_apply       = bool
+    trigger_prefixes = list(string)
+    depends_on       = string
+    execution_mode   = string
+    is_vcs_connected = bool
   }))
 }
 
