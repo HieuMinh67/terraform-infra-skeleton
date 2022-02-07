@@ -9,7 +9,6 @@ variable "workspaces" {
     depends_on              = string
     execution_mode          = string
     is_vcs_connected        = bool
-    is_global_variable_used = bool
   }))
 }
 
