@@ -71,19 +71,3 @@ resource "aws_cognito_user_pool_client" "web-client" {
   # return a UserNotFoundException exception if the user does not exist in the user pool.
   prevent_user_existence_errors = "ENABLED"
 }
-
-output "user_pool_web_client_id" {
-  value = aws_cognito_user_pool_client.web-client.id
-}
-
-output "user_pool_id" {
-  value = aws_cognito_user_pool.main.id
-}
-
-output "user_pool_arn" {
-  value = aws_cognito_user_pool.main.arn
-}
-
-output "user_pool_endpoint" {
-  value = aws_cognito_user_pool.main.endpoint
-}
