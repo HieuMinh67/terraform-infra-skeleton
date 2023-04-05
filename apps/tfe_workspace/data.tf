@@ -3,14 +3,14 @@ data "tfe_workspace" "this_tfc" {
   organization = var.organisation
 }
 
-data "terraform_remote_state" "aws-lambda-workspace" {
-  backend = "remote"
+# data "terraform_remote_state" "aws-lambda-workspace" {
+#   backend = "remote"
 
-  config = {
-    organization = var.organisation
-    workspaces = {
-      name = var.aws-lambda-workspace
-    }
-  }
-}
+#   config = {
+#     organization = var.organisation
+#     workspaces = {
+#       name = var.aws-lambda-workspace
+#     }
+#   }
+# }
 
