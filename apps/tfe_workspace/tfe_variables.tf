@@ -118,3 +118,13 @@ resource "tfe_variable" "this-terraform-github_oauth_token" {
 #   sensitive = true
 #   hcl       = true
 # }
+
+resource "tfe_variable" "lambda-aws_account_id" {
+  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[5].app_type}-${var.workspaces[5].app_category}-${var.workspaces[5].app_name}"].id
+
+  category  = "terraform"
+  key       = "aws_account_id"
+  value     = var.aws_account_id
+  sensitive = true
+  hcl       = true
+}
