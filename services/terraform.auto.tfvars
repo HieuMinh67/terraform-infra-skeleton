@@ -1,5 +1,0 @@
-aws_region = "us-west-2"
-tfe_token = "uCy79wLwvumCjg.atlasv1.wezKfdqWn0xTdMceZ7ncDEir9FqzdyGq3YgH6AJF8EQbrYWEI5UAEgpvTD0hp4O90zU"
-aws_access_key_id = "AKIAVFZ65D43FWZNMB6W"
-aws_secret_access_key = "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"
-aws_account_id = "356077346614"
