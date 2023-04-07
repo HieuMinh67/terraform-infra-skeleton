@@ -107,24 +107,14 @@ resource "tfe_variable" "this-terraform-github_oauth_token" {
   sensitive = true
 }
 
-# resource "tfe_variable" "this-environment-aws_account_ids" {
-#   count = length(var.workspaces)
+resource "tfe_variable" "this-environment-aws_account_ids" {
+  count = length(var.workspaces)
 
-#   workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
-
-#   category  = "terraform"
-#   key       = "aws_account_ids"
-#   value     = "{apps = ${var.aws_account_ids.apps}}"
-#   sensitive = true
-#   hcl       = true
-# }
-
-resource "tfe_variable" "lambda-aws_account_id" {
-  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[5].app_type}-${var.workspaces[5].app_category}-${var.workspaces[5].app_name}"].id
+  workspace_id = tfe_workspace.this["${var.environment}-${var.platform}-${var.workspaces[count.index].app_type}-${var.workspaces[count.index].app_category}-${var.workspaces[count.index].app_name}"].id
 
   category  = "terraform"
-  key       = "aws_account_id"
-  value     = var.aws_account_id
-  sensitive = true
+  key       = "aws_account_ids"
+  value     = "${var.aws_account_ids}"
+  sensitive = false
   hcl       = true
 }
