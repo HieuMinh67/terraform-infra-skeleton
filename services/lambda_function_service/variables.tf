@@ -23,6 +23,12 @@ variable "project" {}
 
 variable "bounded_context" {}
 
+variable "s3_object_key" {
+  type        = string
+  description = "Key used for building lambda function"
+  default     = ""
+}
+
 variable "path_part" {
   default = ""
 }
