@@ -114,7 +114,7 @@ resource "tfe_variable" "this-environment-aws_account_ids" {
 
   category  = "terraform"
   key       = "aws_account_ids"
-  value     = "${var.aws_account_ids}"
+  value     = jsonencode(var.aws_account_ids)
   sensitive = false
   hcl       = true
 }
