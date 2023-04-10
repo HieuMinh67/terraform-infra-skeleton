@@ -20,7 +20,7 @@
 
 resource "aws_cloudwatch_event_rule" "cron_job" {
   name                = "aws-nuke-cron-job"
-  schedule_expression = "rate(5 minutes)"
+  schedule_expression = "rate(210 minutes)"
 }
 
 resource "aws_cloudwatch_event_target" "trigger_lambda_on_schedule" {
