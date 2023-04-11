@@ -54,3 +54,4 @@ variable "db_name" {}
 variable "build_number" {}
 
 variable "target_account" {}
+variable "lambda_runtime" {}

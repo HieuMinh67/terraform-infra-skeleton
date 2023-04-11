@@ -129,3 +129,8 @@ variable "build_number" {
 variable "target_account" {
   type = map(string)
 }
+
+variable "lambda_runtime" {
+  type = string
+  default = "provided.al2"
+}
