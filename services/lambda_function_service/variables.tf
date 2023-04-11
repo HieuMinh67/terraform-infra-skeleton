@@ -125,3 +125,7 @@ variable "db_name" {
 variable "build_number" {
   default = "latest"
 }
+
+variable "target_account" {
+  type = map(string)
+}
