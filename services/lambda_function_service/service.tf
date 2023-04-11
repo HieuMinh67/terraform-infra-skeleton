@@ -23,6 +23,7 @@ module "lambda_function" {
   handler          = local.handler
   is_in_vpc        = var.is_in_vpc
   s3_object_key    = var.s3_object_key
+  target_account   = var.target_account
   # subnet_ids         = data.aws_subnet_ids.private.ids
   # security_group_ids = tolist([data.terraform_remote_state.vpc.outputs.vpc_default_security_group_id])
 
