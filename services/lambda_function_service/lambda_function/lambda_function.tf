@@ -31,7 +31,7 @@ resource "aws_lambda_function" "this" {
   # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:
   # source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   source_code_hash = base64sha256(data.aws_s3_bucket_object.this.last_modified)
-  runtime          = var.runtime
+  runtime          = var.lambda_runtime
 
   environment {
     variables = {
