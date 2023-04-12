@@ -134,3 +134,8 @@ variable "lambda_runtime" {
   type = string
   default = "provided.al2"
 }
+
+variable "lambda_timeout" {
+  type = number
+  default = 12
+}

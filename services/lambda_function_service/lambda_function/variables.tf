@@ -6,7 +6,6 @@ locals {
 
 variable "s3_object_key" {}
 
-
 variable "function_name" {}
 
 variable "project" {}
@@ -56,3 +55,4 @@ variable "build_number" {}
 
 variable "target_account" {}
 variable "lambda_runtime" {}
+variable "lambda_timeout" {}
