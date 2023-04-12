@@ -17,7 +17,6 @@
 #   # within the API Gateway REST API.
 #   source_arn = var.mutation_api_source_arn
 # }
-
 resource "aws_cloudwatch_event_rule" "cron_job" {
   name                = "aws-nuke-cron-job"
   schedule_expression = "rate(210 minutes)"

@@ -6,6 +6,7 @@ locals {
 
 variable "s3_object_key" {}
 
+
 variable "function_name" {}
 
 variable "project" {}
