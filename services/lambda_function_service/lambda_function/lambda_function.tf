@@ -5,7 +5,7 @@ resource "aws_lambda_function" "this" {
   function_name = local.function_full_name
   role          = data.aws_iam_role.iam_for_lambda.arn
   handler       = var.handler
-  timeout       = 12
+  timeout       = var.lambda_timeout
 
   dynamic "vpc_config" {
     for_each = var.is_in_vpc ? [1] : []
@@ -31,7 +31,7 @@ resource "aws_lambda_function" "this" {
   # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:
   # source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   source_code_hash = base64sha256(data.aws_s3_bucket_object.this.last_modified)
-  runtime          = "provided.al2"
+  runtime          = var.lambda_runtime
 
   environment {
     variables = {

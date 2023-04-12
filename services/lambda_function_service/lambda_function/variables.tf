@@ -1,8 +1,10 @@
 locals {
   lambda_bucket      = "${var.aws_account_id}-${var.aws_region}-aws-lambda"
-  lambda_file        = "${var.project}/${var.bounded_context}/builds/${var.service_name}/${var.build_number}.zip"
+  lambda_file        = var.s3_object_key != "" ? var.s3_object_key : "${var.project}/${var.bounded_context}/builds/${var.service_name}/${var.build_number}.zip"
   function_full_name = "${var.project}_${var.bounded_context}_${var.service_name}_${var.function_name}"
 }
+
+variable "s3_object_key" {}
 
 variable "function_name" {}
 
@@ -50,3 +52,7 @@ variable "db_password" {}
 variable "db_name" {}
 
 variable "build_number" {}
+
+variable "target_account" {}
+variable "lambda_runtime" {}
+variable "lambda_timeout" {}

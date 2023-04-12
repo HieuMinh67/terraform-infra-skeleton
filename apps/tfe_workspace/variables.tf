@@ -26,6 +26,7 @@ variable "aws_region" {
 }
 
 variable "aws_account_id" {}
+variable "aws_account_ids" {}
 variable "aws_access_key_id" {}
 variable "aws_secret_access_key" {}
 

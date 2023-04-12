@@ -23,6 +23,12 @@ variable "project" {}
 
 variable "bounded_context" {}
 
+variable "s3_object_key" {
+  type        = string
+  description = "Key used for building lambda function"
+  default     = ""
+}
+
 variable "path_part" {
   default = ""
 }
@@ -118,4 +124,18 @@ variable "db_name" {
 
 variable "build_number" {
   default = "latest"
+}
+
+variable "target_account" {
+  type = map(string)
+}
+
+variable "lambda_runtime" {
+  type = string
+  default = "provided.al2"
+}
+
+variable "lambda_timeout" {
+  type = number
+  default = 12
 }
