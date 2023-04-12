@@ -5,7 +5,7 @@ resource "aws_lambda_function" "this" {
   function_name = local.function_full_name
   role          = data.aws_iam_role.iam_for_lambda.arn
   handler       = var.handler
-  timeout       = 12
+  timeout       = 900
 
   dynamic "vpc_config" {
     for_each = var.is_in_vpc ? [1] : []
