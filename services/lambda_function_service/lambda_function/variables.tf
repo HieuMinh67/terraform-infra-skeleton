@@ -56,3 +56,8 @@ variable "build_number" {}
 variable "target_account" {}
 variable "lambda_runtime" {}
 variable "lambda_timeout" {}
+variable "lambda_schedule_expression" {
+  type = string
+  default = ""
+  description = "default = no cron job"
+}

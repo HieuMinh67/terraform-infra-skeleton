@@ -26,6 +26,8 @@ module "lambda_function" {
   target_account   = var.target_account
   lambda_runtime   = var.lambda_runtime
   lambda_timeout   = var.lambda_timeout
+  
+  lambda_schedule_expression = var.lambda_schedule_expression
   # subnet_ids         = data.aws_subnet_ids.private.ids
   # security_group_ids = tolist([data.terraform_remote_state.vpc.outputs.vpc_default_security_group_id])
 
